@@ -9,11 +9,11 @@ Github-flavored-markdown에서 latex문법을 제공하지 않기때문에(어�
 
 `ex: ![mse](https://latex.codecogs.com/gif.latex?%5Cdpi%7B150%7D%20%5CLARGE%20MSE%20loss%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_n%20%28%5Chat%7By%7D%20-%20y%29%5E2) `
 <br/>
-<p style="text-align:center;">
-
-![MSE](https://latex.codecogs.com/gif.latex?%5Cdpi%7B150%7D%20%5CLARGE%20MSE%20loss%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_n%20%28%5Chat%7By%7D%20-%20y%29%5E2)
-
+<p align="center">
+  
+<img src="https://latex.codecogs.com/gif.latex?%5Cdpi%7B150%7D%20%5CLARGE%20MSE%20loss%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_n%20%28%5Chat%7By%7D%20-%20y%29%5E2">
 </p>
 <br/>
 
-<h1 style="text-align:center;">짠!</h1>
+<h1 align="center">짠!</h1>
+
