@@ -32,7 +32,7 @@ Settings -> Developer settings -> Personal access tokens에서 발급가능합�
 <br>
 (이미 발급되었는데 모르시는 분은 regenerate를 할 수 있습니다)
 
-![postman-01](https://imgur.com/UbiR1xn)
+![postman-01](https://imgur.com/UbiR1xn.png)
 
 2. 
 
@@ -46,7 +46,7 @@ Settings -> Developer settings -> Personal access tokens에서 발급가능합�
 ```
 를 입력하시고 send를 누르시고 201 created가 return 되면 성공입니다.
 
-![postman-02](https://imgur.com/q0q2Tu3)
+![postman-02](https://imgur.com/q0q2Tu3.png)
 
 
 #### CLI에서 API 이용 시, 
