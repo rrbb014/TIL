@@ -1,3 +1,0 @@
-pyimgur
-pyperclip
-python-dotenv
