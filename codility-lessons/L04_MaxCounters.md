@@ -34,4 +34,20 @@ index 다음부터만 카운트 해주면 나올것같았지만, 이 방법 또�
 
 
 ---
-## Second solution - [link]()
+## Second solution - [link](https://app.codility.com/demo/results/trainingFUN4UF-WWF/)
+
+결국 생각하는 시간을 너무 많이 잡아먹어서 검색을 해봄.
+<br>
+1차제출하고나서 이런 방식이 있을것 같은데.. 했지만 실제 구현이 머릿속에서 잘 안떠올랐던것이
+<br>
+https://codesays.com/2014/solution-to-max-counters-by-codility/ 여기서 확인할 수 있었다.
+<br>
+난 O(N)이라고 생각했던 것이 max operation때 리스트 생성을 매번 해줘야 한다는 점에서 비효율적이었던 것으로 추정된다.
+<br>
+사이트에선 리스트를 재생성 및 counter 초기화가 아니라 리스트 내 현재 최대값을 항상 추적하는 current_max_value와 
+<br>
+max operation 시, 업데이트할 값을 추적하는 max_counter를 변수로 설정.
+<br>
+그리고 1차 순회가 끝나고 나면 일부는 max operation이 반영되지않아있어서 이 부분을 바꿔주기위해 다시 한번 순회하면서
+<br>
+max_counter보다 작은 수만 max value로 업데이트 해주면 끝이다.
