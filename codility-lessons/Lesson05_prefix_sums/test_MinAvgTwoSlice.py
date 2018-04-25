@@ -76,7 +76,6 @@ def simple_answer(A):
 
 def test_simple_answer():
 	"""Test function of simple_answer <- slow but correct solution"""
-	
 	assert simple_answer(t1) == 0
 	assert simple_answer(t2) == 3
 	assert simple_answer(t3) == 0
@@ -87,24 +86,24 @@ def test_simple_answer():
 	assert simple_answer(t8) == 8
 	assert simple_answer(t9) == 2
 
-# def test_solution():
-	# # handy case
-	# assert simple_answer(t1) == solution(t1)
-	# assert simple_answer(t2) == solution(t2)
-	# assert simple_answer(t3) == solution(t3)
-	# assert simple_answer(t4) == solution(t4)
-	# assert simple_answer(t5) == solution(t5)
-	# assert simple_answer(t6) == solution(t6)
-	# assert simple_answer(t7) == solution(t7)
-	# assert simple_answer(t8) == solution(t8)
+def test_solution():
+	# handy case
+	assert simple_answer(t1) == solution(t1)
+	assert simple_answer(t2) == solution(t2)
+	assert simple_answer(t3) == solution(t3)
+	assert simple_answer(t4) == solution(t4)
+	assert simple_answer(t5) == solution(t5)
+	assert simple_answer(t6) == solution(t6)
+	assert simple_answer(t7) == solution(t7)
+	assert simple_answer(t8) == solution(t8)
 	
 	# random and big case
-	# for _ in range(10):
-		# N = random.randint(2, 100000)
-		# arr = [random.randint(-10000, 10000) for __ in range(N)]
-		# if solution(arr) != simple_answer(arr):
-			# print(arr)
-			# assert solution(arr) == simple_answer(arr)
+	for _ in range(10):
+		N = random.randint(2, 100000)
+		arr = [random.randint(-10000, 10000) for __ in range(N)]
+		if solution(arr) != simple_answer(arr):
+			print(arr)
+			assert solution(arr) == simple_answer(arr)
 
 			
 if __name__ == "__main__":
