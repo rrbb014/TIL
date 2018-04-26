@@ -22,41 +22,17 @@ t9 = [-3, -5, -8, -4, -10]
 
 def solution(A):
 	N = len(A)
-	pref = A[0] + A[1]
-	length = 2
-	avg = pref / length
-	first_index = 0
-	last_index = 0
-	
-	for idx in range(2, N):
-		if (pref + A[idx]) / (length+1) < avg:
-			pref += A[idx]
-			length += 1
-			avg = pref / length
-			if idx == N-1:
-				last_index = idx
-		else:
-			last_index = idx-1
-			break
-	
-	
-	# 2 phase
-	for idx in range(last_index):
-		if length <= 2:
-			break
-		
-		if (pref - A[idx]) / (length-1) < avg:
-			pref -= A[idx]
-			length -= 1
-			avg = pref / length
-			first_index +=1
-		else:
-			first_index = idx
-			break
-		
-		
-	return first_index
+	min_avg = (A[0] + A[1]) / 2
+	start_idx = 0
 
+	for idx in range(2, N):
+		if (A[idx] + A[idx-1]) /2 < min_avg:
+			min_avg = (A[idx] + A[idx-1]) / 2
+			start_idx = idx - 1
+		if (A[idx] + A[idx-1] + A[idx-2]) / 3 < min_avg:
+			min_avg = (A[idx] + A[idx-1] + A[idx-2]) / 3
+			start_idx = idx - 2
+	return start_idx
 
 def simple_answer(A):
 	N = len(A)
@@ -99,12 +75,13 @@ def test_solution():
 	
 	# random and big case
 	for _ in range(10):
-		N = random.randint(2, 100000)
+		N = random.randint(2, 1000)
 		arr = [random.randint(-10000, 10000) for __ in range(N)]
 		if solution(arr) != simple_answer(arr):
 			print(arr)
 			assert solution(arr) == simple_answer(arr)
-
-			
+		else:
+			assert solution(arr) == simple_answer(arr)
+				
 if __name__ == "__main__":
 	solution(t8)
