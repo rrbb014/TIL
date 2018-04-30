@@ -10,6 +10,32 @@ T5 = ("AAAA", [0, 1, 2, 3], [3, 2, 3, 3])
 
 # ==================== solution code
 def solution(S, P, Q):
+	convert_dict = {"A": 1, "C": 2, "G": 3, "T": 4}
+	pref = [[-1]*len(S), [-1]*len(S), [-1]*len(S), [-1]*len(S)]
+	result = []
+	
+	first = len(S)-1
+	pref[convert_dict[S[first]]-1][-1] = first
+	for idx in range(len(S)-2, -1, -1):
+		pref[0][idx] = pref[0][idx+1]
+		pref[1][idx] = pref[1][idx+1]
+		pref[2][idx] = pref[2][idx+1]
+		pref[3][idx] = pref[3][idx+1]
+		pref[convert_dict[S[idx]]-1][idx] = idx
+	
+	for idx in range(len(P)):
+		if pref[0][P[idx]] != -1 and pref[0][P[idx]] <= Q[idx]:
+			result.append(1)			
+		elif pref[1][P[idx]] != -1 and pref[1][P[idx]] <= Q[idx]:
+			result.append(2)
+		elif pref[2][P[idx]] != -1 and pref[2][P[idx]] <= Q[idx]:
+			result.append(3)
+		else:
+			result.append(4)
+	
+	return result
+	
+def solution_2(S, P, Q):
 	convert_dict = {
 		"A": 1,
 		"C": 2,
@@ -25,25 +51,21 @@ def solution(S, P, Q):
 
 	N = len(P)
 	result = []
-	try:
-		for idx in range(N):
-			res = pref[Q[idx]].copy()
-			
-			if P[idx] > 0:
-				for idx2 in range(P[idx]):
-					res[convert_dict[S[idx2]]-1] -= 1
-					
-			v = 1
-			for i in res:
-				if i == 0:
-					v += 1
-					continue
-				else:
-					result.append(v)
-					break
-	except(IndexError) as e:
-		print('Q[idx] : %d ' % Q[idx])
-		print('len(pref) : %d' % len(pref))
+	for idx in range(N):
+		res = pref[Q[idx]].copy()
+		if P[idx] > 0:
+			for idx2 in range(P[idx]):
+				res[convert_dict[S[idx2]]-1] -= 1
+				
+		v = 1
+		for i in res:
+			if i == 0:
+				v += 1
+				continue
+			else:
+				result.append(v)
+				break
+
 	return result
 
 # =====================================
