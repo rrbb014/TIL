@@ -6,7 +6,7 @@ T1 = ("CAGCCTA", [2, 5, 0], [4, 5, 6])
 T2 = ("A", [0], [0])
 T3 = ("AACCGGTTAACCGGTT", [0, 6, 10], [15, 8, 13])
 T4 = ("ACGTACGT", [1, 2, 3, 4, 5], [1, 2, 3, 4, 5])
-
+T5 = ("AAAA", [0, 1, 2, 3], [3, 2, 3, 3])
 
 # ==================== solution code
 def solution(S, P, Q):
@@ -25,9 +25,9 @@ def solution(S, P, Q):
 
 	N = len(P)
 	result = []
-	for idx in range(N):
-		try:
-			res = pref[Q[idx]]
+	try:
+		for idx in range(N):
+			res = pref[Q[idx]].copy()
 			
 			if P[idx] > 0:
 				for idx2 in range(P[idx]):
@@ -41,25 +41,9 @@ def solution(S, P, Q):
 				else:
 					result.append(v)
 					break
-			# if res[0] == 0:
-				# if res[1] == 0:
-					# if res[2] == 0:
-						# result.append(4)
-					# else:
-						# result.append(3)
-				# else:
-					# result.append(2)
-			# else:
-				# result.append(1)
-				
-		except(IndexError) as e:
-			print('index error occured!')
-			print(idx)
-			print('N: ', N)
-			print('P[idx]: ', P[idx])
-			print('S[idx]: ', Q[idx])
-			
-
+	except(IndexError) as e:
+		print('Q[idx] : %d ' % Q[idx])
+		print('len(pref) : %d' % len(pref))
 	return result
 
 # =====================================
@@ -70,6 +54,8 @@ def test_solution():
 	assert solution(*T2) == [1]
 	assert solution(*T3) == [1, 1, 2]
 	assert solution(*T4) == [2, 3, 4, 1, 2]
+	assert solution(*T5) == [1, 1, 1, 1]
+	
 	# random big case test
 	for _ in range(20):
 		N = random.randint(1, 10000)
@@ -86,16 +72,16 @@ def test_solution():
 			while a1 > a2:
 				a1 = random.randint(0, N)
 				a2 = random.randint(1, N)
-			if a1 <= a2:
-				P.append(a1)
-				Q.append(a2)
-				cnt += 1
+				if a1 <= a2 and a1 < N and a2 < N:
+					P.append(a1)
+					Q.append(a2)
+					cnt += 1
 			
 		if solution(S, P, Q) != simple_answer(S, P, Q):
 			s1 = solution(S, P, Q)
 			s2 = simple_answer(S, P, Q)
 			wrong_idx = [idx for idx in range(len(s1)) if s1[idx] != s2[idx]]
-			for idx in wrong_idx[:2]:
+			for idx in wrong_idx[:5]:
 				print("idx : ", idx)
 				print('P[idx] : ', P[idx])
 				print('Q[idx] : ', Q[idx])
