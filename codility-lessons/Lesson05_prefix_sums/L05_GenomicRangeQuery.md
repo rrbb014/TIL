@@ -78,3 +78,23 @@ Correctness 100 짜리 O(N*M)의 솔루션.
 
 ---
 
+## 3rd solution - [link](https://app.codility.com/demo/results/trainingD8W64Q-MZ7/)
+
+reference - [link](https://codesays.com/2014/solution-to-genomic-range-query-by-codility/)
+
+지금까지 갖고있던 도구로는 도저히 O(N+M)이 나올 것 같지않아 과감하게 풀이를 검색해보았다.
+<br>
+흥미로웠던 점은 [Segment tree](https://www.acmicpc.net/blog/view/9) 라는 것을 알게되었다는 점. (이..이런게 있었다니..!!)
+<br>
+구현도 따라해봤는데 손에 안 익어 연습해봐야할 듯. - [segment tree implementation](https://github.com/rrbb014/TIL/blob/master/codility-lessons/Lesson05_prefix_sums/segment_tree.py), / [reference-link](https://github.com/evgeth/segment_tree)
+<br>
+결론적으로 reference에 나와있는 솔루션은 인덱스 기록으로 상태기록 및 조건 검색을 O(N+M)에 해낼 수 있었다는 것.
+<br>
+처음엔 이해가 잘 안 가다가 천천히 보니 아주 직관적인 방식이었다. 
+<br>
+카운터 만들기에 정체된 내 응용부족을 알 수 있던 문제였음.
+<br>
+segment tree는 이 유형 외에도 여러 구간이나 slice 문제에 범용적으로 활용 할 수 있는 data structure인 듯.. 
+<br>
+공부해두면 유용할 것 같음.
+
