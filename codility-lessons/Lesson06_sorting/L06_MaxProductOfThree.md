@@ -32,7 +32,20 @@
 	
 ### 3rd code
 
-	[Result link]()
+	[Result link](https://app.codility.com/demo/results/training3YJRZC-4PZ/)
+	
+	- task : 100
+	- correctness: 100
+	- performance: 20
+	
+	정렬하지않고 어떻게 이걸 해결하지? 라는 물음에 답이 안나와서 [여길 참고](https://codesays.com/2014/solution-to-max-product-of-three-by-codility/)했다.
+	<br>
+	결국 필요한 것은 가장 작은 수 2개, 가장 큰 수 3개에서 가장 작은수 2개*가장큰수1개랑 가장큰수3개를 곱한거랑 비교해서 더 큰걸 쓴다는 것이다.
+	<br>
+	이러면 O(N)으로 끝나고 space complexity도 O(1)로 제약조건을 만족한다.
+	<br>
+	진짜.. 나빼고 다 천재들 같다.
+	
 	
 	
 	
