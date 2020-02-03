@@ -12,6 +12,7 @@ async def hello_world():
 event_loop = asyncio.get_event_loop()
 
 try:
+    print("이벤트 루프 진입")
     result = event_loop.run_until_complete(hello_world())
     print(result)
 finally:
